@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.xetux.print</groupId>
+	<artifactId>escposjava</artifactId>
+	<version>0.0.2</version>
+	<packaging>jar</packaging>
+
+	<name>escposjava</name>
+	<url>http://maven.apache.org</url>
+
+	<organization>
+		<name>Xetux</name>
+		<url>www.xetux.com</url>
+	</organization>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.version>3.5</maven.compiler.version>
+		<jdk.version>1.8</jdk.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.pi4j</groupId>
+			<artifactId>pi4j-core</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.pi4j</groupId>
+			<artifactId>pi4j-device</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<!-- Definimos los repositorios de descargas -->
+		<repository>
+			<id>xetuxnexus</id>
+			<url>http://10.0.1.251:8081/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<!-- Definimos los repositorios de distribucion. (mvn clean deploy) -->
+		<repository>
+			<!-- servidor de publicacion de versiones liberadas -->
+			<id>xetuxnexus</id>
+			<name>Internal Releases</name>
+			<url>http://10.0.1.251:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<!-- servidor de publicacion de versiones en desarrollo (0.0.1-SNAPSHOT) -->
+			<id>xetuxnexus</id>
+			<url>http://10.0.1.251:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>

@@ -53,7 +53,7 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.xetux.print</groupId>
+			<groupId>com.pos.print</groupId>
 			<artifactId>escposjava</artifactId>
 			<version>0.0.2</version>
 		</dependency>

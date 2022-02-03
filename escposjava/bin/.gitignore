@@ -1,0 +1,6 @@
+.class
+target/
+.meghanada*
+.classpath
+.settings
+.project
