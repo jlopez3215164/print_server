@@ -7,14 +7,14 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>XETUX / XS-PRINT-SERVER / INFO</title>
+		<title>ORION / XS-PRINT-SERVER / INFO</title>
 	</head>
 	<body>
 		<h2 align="center">XS-PRINT-SERVER INFO / CONFIG</h2>
 		<table  border="1" align="center">
 			<tr>
 				<td>VERSION_PRINT-SERVER: </td>
-				<td><%=PoolConfigLoadServlet.XS_PRINT_SERVER_VERSION%></td>
+				<td><%=%></td>
 			</tr>
 			<tr>
 				<td>REAL_PATH_POOL: </td>
@@ -55,11 +55,7 @@
 			<%
 			for (DeviceEntity dev: PoolConfigLoadServlet.conf.getPrinters()){%>
 			<tr>
-				<td><%=dev.getxDevice()%> </td>
-				<td><%=dev.getxLabel()%></td>
-				<td><%=dev.getxNameSystem()%></td>
-				<td><%=dev.getxIp()%></td>
-				<td><%=dev.getxPort()%></td>
+				
 			</tr>
 			<%}%>
 		</table>
