@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+                    
+    
+    
+    
+    <wb-module deploy-name="print-server-0.0.1-SNAPSHOT">
+                                        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                                        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                                        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+                
+        <dependent-module archiveName="utils-print-server-1.0.9-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/utils-print-server/utils-print-server">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="escposjava-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/escposjava/escposjava">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                
+        <dependent-module archiveName="utils-json-1.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/utils-json/utils-json">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                                        
+        
+        
+        
+        <property name="java-output-path" value="/print-server/build/classes"/>
+        <property name="context-root" value="print-server"/>
+                                    
+    
+    
+    
+    </wb-module>
+                
+
+
+
+</project-modules>
