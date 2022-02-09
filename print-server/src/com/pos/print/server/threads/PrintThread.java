@@ -45,11 +45,14 @@ public class PrintThread extends Thread {
 		String lastFilePrint = "";
 		try {
 			while (true) {
-				// log.debug("Printer daemon...");
+				log.debug("Printer daemon...");
 				File[] file = null;
 				try {
-					file = dirList(urlPool, printer.getDevice(), ".printer");
+					log.debug(urlPool);
+					log.debug(printer.getDevice());
+					file = dirList(urlPool, "P_" + printer.getDevice(), ".printer");
 					if (file != null && file.length > 0) {
+						log.debug("Hay archivos...");
 						for (int i = 0; i < file.length; i++) {
 							if (!file[i].getName().equals(lastFilePrint)) {
 								log.debug("Imprimio");
@@ -100,7 +103,25 @@ public class PrintThread extends Thread {
 					// PrinterInstructionEntity comand = new TextInstructionEntity();
 					// comand.setText(line);
 					// comand.sendPrint(service);
-					service.printLn(line);
+					if(line.contains("TOTAL") || line.contains("ORDEN:") || line.contains("MESA:")){
+						if(!line.contains("SUB-")) {
+							service.setTextSize2H();
+							service.setTextSize2W();
+							service.setTextTypeBold();
+							service.setTextAlignCenter();
+							service.printLn(line);	
+						}else {
+							service.setTextSizeNormal();
+							service.setTextSizeNormal();
+							service.setTextAlignLeft();
+							service.printLn(line);	
+						}
+					}else {
+						service.setTextSizeNormal();
+						service.setTextSizeNormal();
+						service.setTextAlignLeft();
+						service.printLn(line);
+					}		
 					// service.lineBreak();
 					log.debug("Envio");
 				}
