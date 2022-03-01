@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                        
+                            
+    
     
     
     
     
     <wb-module deploy-name="print-server-0.0.1-SNAPSHOT">
-                                                
+                                                        
+        
         
         
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                                                
+                                                        
+        
         
         
         
         
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-                                                
+                                                        
+        
         
         
         
@@ -32,21 +36,25 @@
         <dependent-module archiveName="utils-json-1.0.14.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/utils-json/utils-json">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-                                                
+                                                        
+        
         
         
         
         
         <property name="java-output-path" value="/print-server/build/classes"/>
-                
+                        
+        
         <property name="context-root" value="print-server"/>
-                                            
+                                                    
+    
     
     
     
     
     </wb-module>
-                    
+                        
+
 
 
 
