@@ -1,0 +1,283 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x15c16cb8, pid=2588, tid=0x00001584
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_271-b09) (build 1.8.0_271-b09)
+# Java VM: Java HotSpot(TM) Client VM (25.271-b09 mixed mode windows-x86 )
+# Problematic frame:
+# C  [BemaFI32.dll+0x26cb8]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00d1f800):  JavaThread "main" [_thread_in_native, id=5508, stack(0x00c20000,0x00c70000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x00000000, ECX=0x00c6f504, EDX=0x31303030
+ESP=0x00c6f4fc, EBP=0x00c6f518, ESI=0x00000000, EDI=0x00c6f5e0
+EIP=0x15c16cb8, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x00c6f4fc)
+0x00c6f4fc:   00000000 00001e1b 31303030 15003938
+0x00c6f50c:   9c73f78a 15b9cb77 00000000 00c6f558
+0x00c6f51c:   15b9c7c2 15b9c5a0 00c6f540 00000004
+0x00c6f52c:   00000001 00c6f7e4 15c16b60 00c6f558
+0x00c6f53c:   15b9134b 00c6f780 00c6f7e4 00c6f580
+0x00c6f54c:   00c6f5a0 00c6f5a0 00000001 00c6f7c8
+0x00c6f55c:   15b94561 00c6f780 15c16b60 00c6f7e4
+0x00c6f56c:   00c6f580 00c6f5a0 00c6f5d8 00000020 
+
+Instructions: (pc=0x15c16cb8)
+0x15c16c98:   e4 9e fe ff 83 c4 10 b8 f8 ff ff ff 5e 8b 4c 24
+0x15c16ca8:   0c 33 cc e8 d5 bd 03 00 83 c4 10 c2 04 00 33 c0
+0x15c16cb8:   89 06 8b d6 66 89 46 04 8d 44 24 08 2b d1 8a 08
+0x15c16cc8:   88 0c 02 40 84 c9 75 f6 6a 01 8d 54 24 0c 52 6a 
+
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x00000000 is an unknown value
+ECX=0x00c6f504 is pointing into the stack for thread: 0x00d1f800
+EDX=0x31303030 is an unknown value
+ESP=0x00c6f4fc is pointing into the stack for thread: 0x00d1f800
+EBP=0x00c6f518 is pointing into the stack for thread: 0x00d1f800
+ESI=0x00000000 is an unknown value
+EDI=0x00c6f5e0 is pointing into the stack for thread: 0x00d1f800
+
+
+Stack: [0x00c20000,0x00c70000],  sp=0x00c6f4fc,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [BemaFI32.dll+0x26cb8]
+C  [jna6424374284596502934.dll+0xc7c2]
+C  [jna6424374284596502934.dll+0x4561]
+C  [jna6424374284596502934.dll+0x4d2e]
+j  com.sun.jna.Function.invokeInt(I[Ljava/lang/Object;)I+0
+j  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;+315
+j  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;+214
+j  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+341
+j  com.sun.proxy.$Proxy0.Bematech_FI_NumeroCupon(Lcom/sun/jna/ptr/PointerByReference;)I+16
+j  application.Main.main([Ljava/lang/String;)V+304
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x165e44]
+V  [jvm.dll+0x236b5b]
+V  [jvm.dll+0x1659ea]
+V  [jvm.dll+0xebbc5]
+V  [jvm.dll+0xe4446]
+C  [javaw.exe+0x2322]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.jna.Function.invokeInt(I[Ljava/lang/Object;)I+0
+j  com.sun.jna.Function.invoke([Ljava/lang/Object;Ljava/lang/Class;Z)Ljava/lang/Object;+315
+j  com.sun.jna.Function.invoke(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/Map;)Ljava/lang/Object;+214
+j  com.sun.jna.Library$Handler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+341
+j  com.sun.proxy.$Proxy0.Bematech_FI_NumeroCupon(Lcom/sun/jna/ptr/PointerByReference;)I+16
+j  application.Main.main([Ljava/lang/String;)V+304
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x14757800 JavaThread "Service Thread" daemon [_thread_blocked, id=3492, stack(0x14bb0000,0x14c00000)]
+  0x14743000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=5016, stack(0x14b60000,0x14bb0000)]
+  0x14742000 JavaThread "Attach Listener" daemon [_thread_blocked, id=508, stack(0x14b10000,0x14b60000)]
+  0x1473f400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1520, stack(0x14ac0000,0x14b10000)]
+  0x1470ac00 JavaThread "Finalizer" daemon [_thread_blocked, id=2936, stack(0x14760000,0x147b0000)]
+  0x14704400 JavaThread "Reference Handler" daemon [_thread_blocked, id=4900, stack(0x04180000,0x041d0000)]
+=>0x00d1f800 JavaThread "main" [_thread_in_native, id=5508, stack(0x00c20000,0x00c70000)]
+
+Other Threads:
+  0x146fb800 VMThread [stack: 0x04130000,0x04180000] [id=5104]
+  0x1475c800 WatcherThread [stack: 0x14c00000,0x14c50000] [id=1096]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 1404K [0x04200000, 0x04750000, 0x09750000)
+  eden space 4416K,  20% used [0x04200000, 0x042df2e0, 0x04650000)
+  from space 512K, 100% used [0x046d0000, 0x04750000, 0x04750000)
+  to   space 512K,   0% used [0x04650000, 0x04650000, 0x046d0000)
+ tenured generation   total 10944K, used 626K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,   5% used [0x09750000, 0x097ec8a8, 0x097eca00, 0x0a200000)
+ Metaspace       used 3259K, capacity 3286K, committed 3392K, reserved 4480K
+
+Card table byte_map: [0x04040000,0x040d0000] byte_map_base: 0x0401f000
+
+Polling page: 0x00c70000
+
+CodeCache: size=32768Kb used=879Kb max_used=879Kb free=31888Kb
+ bounds [0x02040000, 0x02120000, 0x04040000]
+ total_blobs=287 nmethods=118 adapters=101
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 7.335 Thread 0x14743000  114  s          java.io.BufferedInputStream::read (49 bytes)
+Event: 7.335 Thread 0x14743000 nmethod 114 0x0211a008 code [0x0211a130, 0x0211a418]
+Event: 7.339 Thread 0x14743000  115             java.lang.String::indexOf (7 bytes)
+Event: 7.339 Thread 0x14743000 nmethod 115 0x0211a588 code [0x0211a680, 0x0211a71c]
+Event: 7.339 Thread 0x14743000  116             java.lang.String::substring (79 bytes)
+Event: 7.340 Thread 0x14743000 nmethod 116 0x0211a788 code [0x0211a8d0, 0x0211ab10]
+Event: 7.340 Thread 0x14743000  117             java.util.StringTokenizer::scanToken (179 bytes)
+Event: 7.341 Thread 0x14743000 nmethod 117 0x0211ad08 code [0x0211ae80, 0x0211b268]
+Event: 7.360 Thread 0x14743000  118             java.util.regex.Pattern::has (15 bytes)
+Event: 7.360 Thread 0x14743000 nmethod 118 0x0211ba88 code [0x0211bb80, 0x0211bc20]
+
+GC Heap History (2 events):
+Event: 7.176 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 4928K, used 4416K [0x04200000, 0x04750000, 0x09750000)
+  eden space 4416K, 100% used [0x04200000, 0x04650000, 0x04650000)
+  from space 512K,   0% used [0x04650000, 0x04650000, 0x046d0000)
+  to   space 512K,   0% used [0x046d0000, 0x046d0000, 0x04750000)
+ tenured generation   total 10944K, used 0K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,   0% used [0x09750000, 0x09750000, 0x09750200, 0x0a200000)
+ Metaspace       used 2706K, capacity 2736K, committed 2752K, reserved 4480K
+Event: 7.187 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 4928K, used 512K [0x04200000, 0x04750000, 0x09750000)
+  eden space 4416K,   0% used [0x04200000, 0x04200000, 0x04650000)
+  from space 512K, 100% used [0x046d0000, 0x04750000, 0x04750000)
+  to   space 512K,   0% used [0x04650000, 0x04650000, 0x046d0000)
+ tenured generation   total 10944K, used 626K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,   5% used [0x09750000, 0x097ec8a8, 0x097eca00, 0x0a200000)
+ Metaspace       used 2706K, capacity 2736K, committed 2752K, reserved 4480K
+}
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (6 events):
+Event: 0.195 Thread 0x00d1f800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x04206eb8) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u271\605\hotspot\src\s
+Event: 0.195 Thread 0x00d1f800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x04207188) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u271\605\hotspot\src\share\vm\prims\jni.
+Event: 0.661 Thread 0x00d1f800 Exception <a 'java/security/PrivilegedActionException'> (0x042e3c20) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u271\605\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.661 Thread 0x00d1f800 Exception <a 'java/security/PrivilegedActionException'> (0x042e3e20) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u271\605\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.662 Thread 0x00d1f800 Exception <a 'java/security/PrivilegedActionException'> (0x042e7628) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u271\605\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.662 Thread 0x00d1f800 Exception <a 'java/security/PrivilegedActionException'> (0x042e7828) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u271\605\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+
+Events (10 events):
+Event: 15.229 loading class com/sun/jna/FunctionParameterContext
+Event: 15.229 loading class com/sun/jna/FunctionParameterContext done
+Event: 15.232 loading class java/lang/reflect/TypeVariable
+Event: 15.233 loading class java/lang/reflect/TypeVariable done
+Event: 15.233 loading class java/lang/reflect/AnnotatedType
+Event: 15.233 loading class java/lang/reflect/AnnotatedType done
+Event: 15.233 loading class sun/reflect/NativeMethodAccessorImpl
+Event: 15.246 loading class sun/reflect/NativeMethodAccessorImpl done
+Event: 15.246 loading class sun/reflect/DelegatingMethodAccessorImpl
+Event: 15.246 loading class sun/reflect/DelegatingMethodAccessorImpl done
+
+
+Dynamic libraries:
+0x002d0000 - 0x0030f000 	C:\Program Files\Java\jre1.8.0_271\bin\javaw.exe
+0x77d00000 - 0x77e99000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x77190000 - 0x77228000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x75770000 - 0x7596d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x73cc0000 - 0x73d5f000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x7b660000 - 0x7b8ea000 	C:\WINDOWS\SYSTEM32\AcLayers.DLL
+0x763b0000 - 0x7646f000 	C:\WINDOWS\System32\msvcrt.dll
+0x768e0000 - 0x76a58000 	C:\WINDOWS\System32\USER32.dll
+0x76370000 - 0x7638c000 	C:\WINDOWS\System32\win32u.dll
+0x76a70000 - 0x76a91000 	C:\WINDOWS\System32\GDI32.dll
+0x75600000 - 0x75761000 	C:\WINDOWS\System32\gdi32full.dll
+0x75b30000 - 0x75bac000 	C:\WINDOWS\System32\msvcp_win.dll
+0x76250000 - 0x76370000 	C:\WINDOWS\System32\ucrtbase.dll
+0x77340000 - 0x778bb000 	C:\WINDOWS\System32\SHELL32.dll
+0x75ad0000 - 0x75b0b000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x77c70000 - 0x77cf3000 	C:\WINDOWS\System32\shcore.dll
+0x76470000 - 0x76530000 	C:\WINDOWS\System32\RPCRT4.dll
+0x76590000 - 0x76806000 	C:\WINDOWS\System32\combase.dll
+0x75970000 - 0x759d0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x75bb0000 - 0x76170000 	C:\WINDOWS\System32\windows.storage.dll
+0x76ca0000 - 0x76d16000 	C:\WINDOWS\System32\sechost.dll
+0x77b40000 - 0x77bb9000 	C:\WINDOWS\System32\advapi32.dll
+0x755c0000 - 0x755db000 	C:\WINDOWS\System32\profapi.dll
+0x75570000 - 0x755b3000 	C:\WINDOWS\System32\powrprof.dll
+0x75560000 - 0x7556d000 	C:\WINDOWS\System32\UMPDC.dll
+0x77bc0000 - 0x77c04000 	C:\WINDOWS\System32\shlwapi.dll
+0x755f0000 - 0x755ff000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x76390000 - 0x763a3000 	C:\WINDOWS\System32\cryptsp.dll
+0x76c00000 - 0x76c92000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x76d20000 - 0x77169000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x75b10000 - 0x75b2b000 	C:\WINDOWS\System32\bcrypt.dll
+0x6f1a0000 - 0x6f1b8000 	C:\WINDOWS\SYSTEM32\MPR.dll
+0x00940000 - 0x00943000 	C:\WINDOWS\SYSTEM32\sfc.dll
+0x67e60000 - 0x67ecb000 	C:\WINDOWS\SYSTEM32\WINSPOOL.DRV
+0x72840000 - 0x72906000 	C:\WINDOWS\SYSTEM32\PROPSYS.dll
+0x74c40000 - 0x74c72000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x71fe0000 - 0x71fef000 	C:\WINDOWS\SYSTEM32\sfc_os.DLL
+0x5df00000 - 0x5df0f000 	C:\WINDOWS\SYSTEM32\SortWindows61.dll
+0x77ab0000 - 0x77ad6000 	C:\WINDOWS\System32\IMM32.DLL
+0x6b970000 - 0x6bb7f000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1316_none_e6276d26f8de04dd\COMCTL32.dll
+0x6ed20000 - 0x6ed33000 	C:\Program Files\Java\jre1.8.0_271\bin\vcruntime140.dll
+0x6e550000 - 0x6e5bf000 	C:\Program Files\Java\jre1.8.0_271\bin\msvcp140.dll
+0x7b8f0000 - 0x7bccf000 	C:\Program Files\Java\jre1.8.0_271\bin\client\jvm.dll
+0x77180000 - 0x77186000 	C:\WINDOWS\System32\PSAPI.DLL
+0x72d50000 - 0x72d74000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x71620000 - 0x71628000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x72d20000 - 0x72d43000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x5d900000 - 0x5d908000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x76ba0000 - 0x76bfe000 	C:\WINDOWS\System32\WS2_32.dll
+0x5d710000 - 0x5d71d000 	C:\Program Files\Java\jre1.8.0_271\bin\verify.dll
+0x564d0000 - 0x564f4000 	C:\Program Files\Java\jre1.8.0_271\bin\java.dll
+0x5b640000 - 0x5b654000 	C:\Program Files\Java\jre1.8.0_271\bin\zip.dll
+0x74af0000 - 0x74b1f000 	C:\WINDOWS\system32\rsaenh.dll
+0x75480000 - 0x7549e000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x75030000 - 0x7503a000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x7a9c0000 - 0x7a9d7000 	C:\Program Files\Java\jre1.8.0_271\bin\net.dll
+0x74eb0000 - 0x74f07000 	C:\WINDOWS\system32\mswsock.dll
+0x77170000 - 0x77177000 	C:\WINDOWS\System32\NSI.dll
+0x6fb80000 - 0x6fb93000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x6fb60000 - 0x6fb75000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x74c80000 - 0x74d13000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x7a9e0000 - 0x7a9ef000 	C:\Program Files\Java\jre1.8.0_271\bin\nio.dll
+0x15b90000 - 0x15be5000 	C:\Users\alrm_\AppData\Local\Temp\jna6424374284596502934.dll
+0x15bf0000 - 0x15cb1000 	C:\WINDOWS\SYSTEM32\BemaFI32.dll
+0x75340000 - 0x75363000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x76170000 - 0x761b6000 	C:\WINDOWS\System32\WINTRUST.dll
+0x755e0000 - 0x755ee000 	C:\WINDOWS\System32\MSASN1.dll
+0x759d0000 - 0x75acb000 	C:\WINDOWS\System32\CRYPT32.dll
+0x68800000 - 0x6898f000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 
+java_command: application.Main
+java_class_path (initial): E:\Projetos\Bematech Venezuela\Biblioteca De Integracion Bematech - Enero 2020 (Actualizados)\Ejemplos\EjemploJava(JNA)\TesteECFJavaJNA\bin;E:\Projetos\Bematech Venezuela\Biblioteca De Integracion Bematech - Enero 2020 (Actualizados)\Ejemplos\EjemploJava(JNA)\TesteECFJavaJNA\lib\jna.jar;E:\Projetos\Bematech Venezuela\Biblioteca De Integracion Bematech - Enero 2020 (Actualizados)\Ejemplos\EjemploJava(JNA)\TesteECFJavaJNA\lib\platform.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Program Files/Java/jre1.8.0_271/bin/client;C:/Program Files/Java/jre1.8.0_271/bin;C:/Program Files/Java/jre1.8.0_271/lib/i386;C:\Program Files\Borland\Delphi7\Bin;C:\Program Files\Borland\Delphi7\Projects\Bpl\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\dotnet\;C:\Users\alrm_\AppData\Local\Microsoft\WindowsApps;C:\Users\alrm_\.dotnet\tools;C:\Eclipse;
+USERNAME=alrm_
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 13, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 Build 18362 (10.0.18362.1316)
+
+CPU:total 2 (initial active 2) (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 13, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, tsc
+
+Memory: 4k page, physical 2087284k(234032k free), swap 3529076k(869396k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.271-b09) for windows-x86 JRE (1.8.0_271-b09), built on Sep 17 2020 01:51:12 by "" with MS VC++ 15.9 (VS2017)
+
+time: Thu Jan 14 14:56:01 2021
+timezone: Hora oficial do Brasil
+elapsed time: 16.612599 seconds (0d 0h 0m 16s)
+
