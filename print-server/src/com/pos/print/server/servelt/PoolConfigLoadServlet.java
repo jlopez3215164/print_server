@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pos.print.server.entity.ConfigPrintersEntity;
 import com.pos.print.server.entity.DeviceEntity;
+import com.pos.print.server.threads.PrintFiscalThread;
 import com.pos.print.server.threads.PrintThread;
 
 /**
@@ -92,6 +93,9 @@ public class PoolConfigLoadServlet extends HttpServlet {
 						log.info("***** Print Server Root Files Queue {} Exists Directory --> {}", dev.getDevice(),
 						ftmp.exists());
 					}
+					
+					PrintFiscalThread hiloFiscal = new PrintFiscalThread();
+					hiloFiscal.start();
 
 					log.info("***** Print Server Load All is Ok..!");
 				} catch (JsonParseException e) {

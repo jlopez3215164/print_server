@@ -1,0 +1,9 @@
+<Context path='/server_sql' debug='5' reloadable='true'
+	crossContext='true'>
+	<Resource name="jdbc/ServerSQL" auth="Container"
+		type="javax.sql.DataSource" maxActive="50" maxIdle="30"
+		maxWait="10000" username="root" password=""
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/restaurant" />
+
+</Context>
