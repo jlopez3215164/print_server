@@ -22,43 +22,48 @@ public class PrintFiscalThread extends Thread {
 	@Override
 	public void run() {
 		try {
+			Connection con = null;
+			PreparedStatement pstm = null;
+			ResultSet rs = null;
+			//===========================================
 			while (true) {
 				log.debug("Printer daemon Fiscal...");
-				
-				Connection con = null;
-				PreparedStatement pstm = null;
-				ResultSet rs = null;
-				try{
-					con = DriverManagerMail.getDataSource().getConnection();
+				//===============================================
+				try {
+					con = new DriverManagerMail().getDataSource().getConnection();
+					// Facturas
 					pstm = con.prepareStatement("select * from customer_order where is_print_fiscal = 1");
-		        	rs = pstm.executeQuery();
-		        	while(rs.next()) {
-		        		log.debug("Imprimiendo la factura...");
-		        		pstm = con.prepareStatement("update customer_order set is_print_fiscal = 2 where order_id = ?");
-		        		pstm.setInt(1, rs.getInt("order_id"));
-			        	pstm.execute();	
-		        	}
-					
-				}catch (XDatabaseConexionException e) {
-					// TODO Auto-generated catch block
+					rs = pstm.executeQuery();
+					while (rs.next()) {
+						log.debug("Imprimiendo la factura...");
+						pstm = con.prepareStatement("update customer_order set is_print_fiscal = 2 where order_id = ?");
+						pstm.setInt(1, rs.getInt("order_id"));
+						pstm.execute();
+					}
+					// Notas de Credito
+					pstm = con.prepareStatement("select * from customer_order where is_print_fiscal = 3");
+					rs = pstm.executeQuery();
+					while (rs.next()) {
+						log.debug("Imprimiendo la factura...");
+						pstm = con.prepareStatement("update customer_order set is_print_fiscal = 4 where order_id = ?");
+						pstm.setInt(1, rs.getInt("order_id"));
+						pstm.execute();
+					}
+				} catch (Exception e) {
 					e.printStackTrace();
-				}
-		        catch (Exception e)
-		        {
-		            e.printStackTrace();
-		        }finally{
+				} finally {
 					try {
-						if(con != null)
+						if (con != null)
 							con.close();
-						if(pstm != null)
+						if (pstm != null)
 							pstm.close();
-						if(rs != null)
+						if (rs != null)
 							rs.close();
-		            } catch (SQLException e1) {
+					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					} 
-		        }
+					}
+				}
 				Thread.sleep(PoolConfigLoadServlet.THEARD_INTERVAL);
 			}
 		} catch (Throwable e) {
